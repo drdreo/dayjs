@@ -1,5 +1,5 @@
 // Chinese (Taiwan) [zh-tw]
-import dayjs from 'dayjs'
+import dayjs from 'esm-dayjs'
 
 const locale = {
   name: 'zh-tw',

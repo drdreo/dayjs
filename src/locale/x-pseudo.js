@@ -1,5 +1,5 @@
 // Pseudo [x-pseudo]
-import dayjs from 'dayjs'
+import dayjs from 'esm-dayjs'
 
 const locale = {
   name: 'x-pseudo',

@@ -1,5 +1,5 @@
 // English (Israel) [en-il]
-import dayjs from 'dayjs'
+import dayjs from 'esm-dayjs'
 
 const locale = {
   name: 'en-il',

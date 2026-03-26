@@ -82,8 +82,8 @@ it('Custom format', () => {
 
 it('Custom callback', () => {
   const callbacks = {
-    sameDay: jest.fn(),
-    sameElse: jest.fn()
+    sameDay: vi.fn(),
+    sameElse: vi.fn()
   }
   const now = '2015-01-15T14:21:22.000Z'
   const nextDayWithoutFormat = '2015-01-14T11:23:55.000Z'
@@ -93,8 +93,8 @@ it('Custom callback', () => {
 
 it('Calls callback', () => {
   const callbacks = {
-    sameDay: jest.fn(),
-    sameElse: jest.fn()
+    sameDay: vi.fn(),
+    sameElse: vi.fn()
   }
   dayjs().calendar(null, callbacks)
   expect(callbacks.sameElse).not.toBeCalled()
@@ -103,7 +103,7 @@ it('Calls callback', () => {
 
 it('callback is a function with the scope of the current moment', () => {
   const callbacks = {
-    sameDay: jest.fn()
+    sameDay: vi.fn()
   }
   expect(dayjs().calendar(null, callbacks)).toEqual(callbacks.sameDay())
   const callbacks2 = {
@@ -118,7 +118,7 @@ it('callback is a function with the scope of the current moment', () => {
 
 it('callback is a function and first argument a moment that depicts now', () => {
   const callbacks = {
-    sameDay: jest.fn()
+    sameDay: vi.fn()
   }
   const now = dayjs()
   dayjs(now).calendar(now, callbacks)

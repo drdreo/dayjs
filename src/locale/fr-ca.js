@@ -1,5 +1,5 @@
 // French (Canada) [fr-ca]
-import dayjs from 'dayjs'
+import dayjs from 'esm-dayjs'
 
 const locale = {
   name: 'fr-ca',

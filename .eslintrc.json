@@ -1,10 +1,11 @@
 {
   "extends": "airbnb-base",
-  "plugins": [
-    "jest"
-  ],
   "env": {
-    "jest/globals": true
+    "es2022": true
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
   },
   "globals": {
     "window": true,
@@ -32,13 +33,12 @@
       2,
       {
         "ignore": [
-          "dayjs"
+          "esm-dayjs"
         ]
       }
     ],
     "import/extensions": [
-      2,
-      "never"
+      0
     ]
   }
 }

@@ -1,5 +1,5 @@
 // Frisian [fy]
-import dayjs from 'dayjs'
+import dayjs from 'esm-dayjs'
 
 const locale = {
   name: 'fy',

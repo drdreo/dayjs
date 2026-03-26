@@ -1,5 +1,5 @@
 // Konkani Latin script [gom-latn]
-import dayjs from 'dayjs'
+import dayjs from 'esm-dayjs'
 
 const locale = {
   name: 'gom-latn',

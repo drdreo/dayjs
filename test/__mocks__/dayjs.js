@@ -1,3 +1,3 @@
-const dayjs = require('../../src')
+import dayjs from '../../src/index.js'
 
-module.exports = dayjs
+export default dayjs

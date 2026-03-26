@@ -1,5 +1,5 @@
 // Uyghur (China) [ug-cn]
-import dayjs from 'dayjs'
+import dayjs from 'esm-dayjs'
 
 const locale = {
   name: 'ug-cn',

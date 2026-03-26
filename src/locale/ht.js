@@ -1,5 +1,5 @@
 // Haitian Creole (Haiti) [ht]
-import dayjs from 'dayjs'
+import dayjs from 'esm-dayjs'
 
 const locale = {
   name: 'ht',

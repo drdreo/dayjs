@@ -1,9 +1,9 @@
-import { PluginFunc, UnitType, ConfigType } from 'dayjs'
+import { PluginFunc, UnitType, ConfigType } from 'esm-dayjs'
 
 declare const plugin: PluginFunc
-export = plugin
+export default plugin
 
-declare module 'dayjs' {
+declare module 'esm-dayjs' {
   interface Dayjs {
     years(): number
 

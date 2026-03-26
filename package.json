@@ -1,18 +1,31 @@
 {
-  "name": "dayjs",
+  "name": "esm-dayjs",
   "version": "0.0.0-development",
   "description": "2KB immutable date time library alternative to Moment.js with the same modern API ",
-  "main": "dayjs.min.js",
-  "types": "index.d.ts",
+  "type": "module",
+  "main": "./dayjs.min.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./dayjs.min.js"
+    },
+    "./locale/*": {
+      "default": "./locale/*.js"
+    },
+    "./plugin/*": {
+      "default": "./plugin/*.js"
+    },
+    "./src/*": {
+      "default": "./src/*.js"
+    }
+  },
   "scripts": {
-    "test": "TZ=Pacific/Auckland npm run test-tz && TZ=Europe/London npm run test-tz && TZ=America/Whitehorse npm run test-tz && npm run test-tz && jest --coverage --coverageThreshold='{ \"global\": { \"lines\": 100} }'",
-    "test-tz": "date && jest test/timezone.test --coverage=false",
-    "lint": "./node_modules/.bin/eslint src/* test/* build/*",
+    "test": "cross-env TZ=Pacific/Auckland npm run test-tz && cross-env TZ=Europe/London npm run test-tz && cross-env TZ=America/Whitehorse npm run test-tz && npm run test-tz && vitest run --coverage",
+    "test-tz": "vitest run test/timezone.test.js",
+    "lint": "eslint src/* test/* build/*",
     "prettier": "prettier --write \"docs/**/*.md\"",
-    "babel": "cross-env BABEL_ENV=build babel src --out-dir esm --copy-files && node build/esm",
-    "build": "cross-env BABEL_ENV=build node build && npm run size",
-    "sauce": "npx karma start karma.sauce.conf.js",
-    "test:sauce": "npm run sauce -- 0 && npm run sauce -- 1 && npm run sauce -- 2  && npm run sauce -- 3",
+    "build": "node build/index.js && npm run size",
     "size": "size-limit && gzip-size dayjs.min.js"
   },
   "pre-commit": [
@@ -24,18 +37,6 @@
       "path": "dayjs.min.js"
     }
   ],
-  "jest": {
-    "roots": [
-      "test"
-    ],
-    "testRegex": "test/(.*?/)?.*test.js$",
-    "testURL": "http://localhost",
-    "coverageDirectory": "./coverage/",
-    "collectCoverage": true,
-    "collectCoverageFrom": [
-      "src/**/*"
-    ]
-  },
   "keywords": [
     "dayjs",
     "date",
@@ -48,38 +49,25 @@
   "homepage": "https://day.js.org",
   "repository": {
     "type": "git",
-    "url": "https://github.com/iamkun/dayjs.git"
+    "url": "https://github.com/drdreo/dayjs.git"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.44",
-    "@babel/core": "^7.0.0-beta.44",
-    "@babel/node": "^7.0.0-beta.44",
-    "@babel/preset-env": "^7.0.0-beta.44",
     "@semantic-release/github": "^11.0.4",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^22.4.3",
-    "babel-plugin-external-helpers": "^6.22.0",
-    "cross-env": "^5.1.6",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb-base": "^12.1.0",
+    "@vitest/coverage-v8": "^3.0.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.0.0",
+    "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.10.0",
-    "eslint-plugin-jest": "^21.15.0",
-    "gzip-size-cli": "^2.1.0",
-    "jasmine-core": "^2.99.1",
-    "jest": "^22.4.3",
-    "karma": "^2.0.2",
-    "karma-jasmine": "^1.1.2",
-    "karma-sauce-launcher": "^1.1.0",
-    "mockdate": "^2.0.2",
+    "gzip-size-cli": "^5.0.0",
+    "mockdate": "^3.0.0",
     "moment": "2.29.2",
     "moment-timezone": "0.5.31",
-    "ncp": "^2.0.0",
     "pre-commit": "^1.2.2",
-    "prettier": "^1.16.1",
-    "rollup": "^2.45.1",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-terser": "^7.0.2",
-    "size-limit": "^0.18.0",
-    "typescript": "^2.8.3"
+    "prettier": "^3.0.0",
+    "rolldown": "^1.0.0-rc.12",
+    "size-limit": "^11.0.0",
+    "@size-limit/file": "^11.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^3.0.0"
   }
 }

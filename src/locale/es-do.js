@@ -1,5 +1,5 @@
 // Spanish (Dominican Republic) [es-do]
-import dayjs from 'dayjs'
+import dayjs from 'esm-dayjs'
 
 const locale = {
   name: 'es-do',

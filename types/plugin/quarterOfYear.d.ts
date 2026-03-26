@@ -1,9 +1,9 @@
-import { PluginFunc, ConfigType, QUnitType, OpUnitType } from 'dayjs'
+import { PluginFunc, ConfigType, QUnitType, OpUnitType } from 'esm-dayjs'
 
 declare const plugin: PluginFunc
-export = plugin
+export default plugin
 
-declare module 'dayjs' {
+declare module 'esm-dayjs' {
   interface Dayjs {
     quarter(): number
 

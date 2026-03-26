@@ -1,5 +1,5 @@
 // German [de]
-import dayjs from 'dayjs'
+import dayjs from 'esm-dayjs'
 
 const texts = {
   s: 'ein paar Sekunden',

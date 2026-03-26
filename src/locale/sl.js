@@ -1,5 +1,5 @@
 // Slovenian [sl]
-import dayjs from 'dayjs'
+import dayjs from 'esm-dayjs'
 
 function dual(n) {
   return (n % 100) == 2 // eslint-disable-line

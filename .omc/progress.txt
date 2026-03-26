@@ -1,0 +1,16 @@
+=== Ralph Progress: CJS → ESM Migration ===
+
+## Iteration 1 - Initial Assessment
+- Source code (src/) is already ESM with import/export
+- Tests use ESM import syntax but rely on babel-jest to transform to CJS for Jest 22
+- Build system (build/) is entirely CJS with require()
+- Package.json has no "type": "module", no "exports" map
+- babel.config.js uses module.exports
+- test/__mocks__/dayjs.js uses require/module.exports
+- Node v24.11.1, npm 11.7.0 available
+
+## Key Decisions
+- Replace Jest 22 with Vitest (native ESM, jest-compatible API)
+- Convert build scripts to ESM
+- Add proper exports map to package.json
+- Remove UMD build format, use ESM-only

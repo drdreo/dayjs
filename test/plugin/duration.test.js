@@ -158,7 +158,7 @@ describe('Clone', () => {
   })
 })
 
-describe('Milliseconds', () => {
+it('Milliseconds', () => {
   expect(dayjs.duration(500).milliseconds()).toBe(500)
   expect(dayjs.duration(1500).milliseconds()).toBe(500)
   expect(dayjs.duration(15000).milliseconds()).toBe(0)
@@ -168,7 +168,7 @@ describe('Milliseconds', () => {
 })
 
 describe('Milliseconds', () => {
-  describe('Positive number', () => {
+  it('Positive number', () => {
     expect(dayjs.duration(500).milliseconds()).toBe(500)
     expect(dayjs.duration(1500).milliseconds()).toBe(500)
     expect(dayjs.duration(15000).milliseconds()).toBe(0)
@@ -177,7 +177,7 @@ describe('Milliseconds', () => {
     expect(dayjs.duration(15000).asMilliseconds()).toBe(15000)
   })
 
-  describe('Negative number', () => {
+  it('Negative number', () => {
     expect(dayjs.duration(-500).milliseconds()).toBe(-500)
     expect(dayjs.duration(-1500).milliseconds()).toBe(-500)
     expect(dayjs.duration(-15000).milliseconds()).toBe(0)
@@ -187,7 +187,7 @@ describe('Milliseconds', () => {
   })
 })
 
-describe('Add', () => {
+it('Add', () => {
   const a = dayjs.duration(1, 'days')
   const b = dayjs.duration(2, 'days')
   expect(a.add(b).days()).toBe(3)
@@ -195,7 +195,7 @@ describe('Add', () => {
   expect(a.add({ days: 5 }).days()).toBe(6)
 })
 
-describe('Add to a dayjs()', () => {
+it('Add to a dayjs()', () => {
   const a = dayjs()
   const b = dayjs.duration({ hours: 7, minutes: 10 })
   expect(a.add(b)).toEqual(a.add(7, 'hours').add(10, 'minutes'))
@@ -211,7 +211,7 @@ test('Add duration', () => {
   expect(b.add(p).format('YYYY-MM-DD HH:mm:ss')).toBe('2024-03-02 01:01:01')
 })
 
-describe('Subtract', () => {
+it('Subtract', () => {
   const a = dayjs.duration(3, 'days')
   const b = dayjs.duration(2, 'days')
   expect(a.subtract(b).days()).toBe(1)
@@ -227,7 +227,7 @@ test('Subtract duration', () => {
   expect(b.subtract(p).format('YYYY-MM-DD HH:mm:ss')).toBe('2022-02-01 01:01:01')
 })
 
-describe('Seconds', () => {
+it('Seconds', () => {
   expect(dayjs.duration(500).seconds()).toBe(0)
   expect(dayjs.duration(1500).seconds()).toBe(1)
   expect(dayjs.duration(15000).seconds()).toBe(15)
@@ -237,13 +237,13 @@ describe('Seconds', () => {
   expect(dayjs.duration(15000).asSeconds()).toBe(15)
 })
 
-describe('Minutes', () => {
+it('Minutes', () => {
   expect(dayjs.duration(100000).minutes()).toBe(1)
   expect(dayjs.duration(61000).minutes()).toBe(1) // 1 minute 1 second
   expect(dayjs.duration(100000).asMinutes().toFixed(2)).toBe('1.67')
 })
 
-describe('Hours', () => {
+it('Hours', () => {
   expect(dayjs.duration(10000000).hours()).toBe(2)
   expect(dayjs.duration(10000000).asHours().toFixed(2)).toBe('2.78')
 })
@@ -260,22 +260,22 @@ describe('Days', () => {
   })
 })
 
-describe('Weeks', () => {
+it('Weeks', () => {
   expect(dayjs.duration(1000000000).weeks()).toBe(1)
   expect(dayjs.duration(1000000000).asWeeks().toFixed(2)).toBe('1.65')
 })
 
-describe('Month', () => {
+it('Month', () => {
   expect(dayjs.duration(10000000000).months()).toBe(3)
   expect(dayjs.duration({ months: 3 }).asMonths()).toBe(3)
 })
 
-describe('Years', () => {
+it('Years', () => {
   expect(dayjs.duration(100000000000).years()).toBe(3)
   expect(dayjs.duration(100000000000).asYears().toFixed(2)).toBe('3.17')
 })
 
-describe('prettyUnit', () => {
+it('prettyUnit', () => {
   const d = dayjs.duration(2, 's')
   expect(d.toISOString()).toBe('PT2S')
   expect(d.as('seconds')).toBe(2)

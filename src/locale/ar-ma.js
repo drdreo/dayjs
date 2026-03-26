@@ -1,5 +1,5 @@
 // Arabic (Morocco) [ar-ma]
-import dayjs from 'dayjs'
+import dayjs from 'esm-dayjs'
 
 const locale = {
   name: 'ar-ma',

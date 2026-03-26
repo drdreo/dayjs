@@ -1,5 +1,5 @@
 // Slovak [sk]
-import dayjs from 'dayjs'
+import dayjs from 'esm-dayjs'
 
 function plural(n) {
   return (n > 1) && (n < 5) && (~~(n / 10) !== 1) // eslint-disable-line

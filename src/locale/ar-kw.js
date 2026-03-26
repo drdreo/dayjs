@@ -1,5 +1,5 @@
 // Arabic (Kuwait) [ar-kw]
-import dayjs from 'dayjs'
+import dayjs from 'esm-dayjs'
 
 const locale = {
   name: 'ar-kw',

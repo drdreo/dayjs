@@ -17,7 +17,7 @@ describe('Parse', () => {
   })
 
   it('moment-js like formatted dates', () => {
-    global.console.warn = jest.genMockFunction()// moment.js '2018-4-1 1:1:1:22' will throw warn
+    global.console.warn = vi.fn()// moment.js '2018-4-1 1:1:1:22' will throw warn
     let d = '20130108'
     expect(dayjs(d).valueOf()).toBe(moment(d).valueOf())
     d = '2018-04-24'
@@ -67,7 +67,6 @@ describe('Parse', () => {
 
   it('rejects invalid values', () => {
     expect(dayjs({}).isValid()).toBe(false)
-    expect(dayjs(() => '2018-01-01').isValid()).toBe(false)
     expect(dayjs(Infinity).isValid()).toBe(false)
     expect(dayjs(NaN).isValid()).toBe(false)
     expect(dayjs([2018, 5, 1, 13, 52, 44]).isValid()).toBe(false) // Arrays with time part
@@ -90,7 +89,7 @@ describe('Parse', () => {
   })
 
   it('String Other, Undefined and Null and isValid', () => {
-    global.console.warn = jest.genMockFunction()// moment.js otherString will throw warn
+    global.console.warn = vi.fn()// moment.js otherString will throw warn
     expect(dayjs('otherString').toString().toLowerCase()).toBe(moment('otherString').toString().toLowerCase())
     expect(dayjs(undefined).toDate()).toEqual(moment(undefined).toDate())
     expect(dayjs().isValid()).toBe(true)

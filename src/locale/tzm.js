@@ -1,5 +1,5 @@
 // Central Atlas Tamazight [tzm]
-import dayjs from 'dayjs'
+import dayjs from 'esm-dayjs'
 
 const locale = {
   name: 'tzm',

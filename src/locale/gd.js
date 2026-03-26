@@ -1,5 +1,5 @@
 // Scottish Gaelic [gd]
-import dayjs from 'dayjs'
+import dayjs from 'esm-dayjs'
 
 const locale = {
   name: 'gd',

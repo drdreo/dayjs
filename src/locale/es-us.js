@@ -1,5 +1,5 @@
 // Spanish (United States) [es-us]
-import dayjs from 'dayjs'
+import dayjs from 'esm-dayjs'
 
 const locale = {
   name: 'es-us',

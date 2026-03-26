@@ -1,9 +1,9 @@
-import { PluginFunc, ConfigType } from 'dayjs'
+import { PluginFunc, ConfigType } from 'esm-dayjs'
 
 declare const plugin: PluginFunc
-export = plugin
+export default plugin
 
-declare module 'dayjs' {
+declare module 'esm-dayjs' {
   interface Dayjs {
     tz(timezone?: string, keepLocalTime?: boolean): Dayjs
     offsetName(type?: 'short' | 'long'): string | undefined

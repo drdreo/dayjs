@@ -1,9 +1,9 @@
-import { PluginFunc } from 'dayjs'
-import { OpUnitType, UnitTypeLongPlural } from 'dayjs';
+import { PluginFunc } from 'esm-dayjs'
+import { OpUnitType, UnitTypeLongPlural } from 'esm-dayjs';
 
 declare const plugin: PluginFunc
 export as namespace plugin;
-export = plugin
+export default plugin
 
 declare namespace plugin {
   /**
@@ -74,7 +74,7 @@ declare namespace plugin {
   }
 }
 
-declare module 'dayjs' {
+declare module 'esm-dayjs' {
   interface Dayjs {
     add(duration: plugin.Duration): Dayjs
     subtract(duration: plugin.Duration): Dayjs

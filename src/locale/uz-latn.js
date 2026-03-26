@@ -1,5 +1,5 @@
 // Uzbek Latin [uz-latn]
-import dayjs from 'dayjs'
+import dayjs from 'esm-dayjs'
 
 const locale = {
   name: 'uz-latn',

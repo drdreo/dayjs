@@ -1,5 +1,5 @@
 // Arabic (Lybia) [ar-ly]
-import dayjs from 'dayjs'
+import dayjs from 'esm-dayjs'
 
 const locale = {
   name: 'ar-ly',

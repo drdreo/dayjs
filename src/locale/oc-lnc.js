@@ -1,5 +1,5 @@
 // Occitan, lengadocian dialecte [oc-lnc]
-import dayjs from 'dayjs'
+import dayjs from 'esm-dayjs'
 
 const locale = {
   name: 'oc-lnc',

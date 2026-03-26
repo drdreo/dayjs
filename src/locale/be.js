@@ -24,7 +24,7 @@ function relativeTimeWithPlural(number, withoutSuffix, key) {
   }
   if (key === 'm') {
     return withoutSuffix ? 'хвіліна' : 'хвіліну'
-  } else if (key === 'h') {
+  } if (key === 'h') {
     return withoutSuffix ? 'гадзіна' : 'гадзіну'
   }
 
@@ -81,13 +81,13 @@ const locale = {
     y: 'год',
     yy: relativeTimeWithPlural
   },
-  ordinal: n => n,
+  ordinal: (n) => n,
   meridiem: (hour) => {
     if (hour < 4) {
       return 'ночы'
-    } else if (hour < 12) {
+    } if (hour < 12) {
       return 'раніцы'
-    } else if (hour < 17) {
+    } if (hour < 17) {
       return 'дня'
     }
     return 'вечара'

@@ -16,7 +16,6 @@ afterEach(() => {
 
 global.console.warn = vi.fn()
 
-
 it('Warning: passing Year as a Number will be parsed as a Unix timestamp', () => {
   const consoleSpy = vi.spyOn(console, 'warn')
   dayjs(2020)

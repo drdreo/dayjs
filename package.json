@@ -1,6 +1,6 @@
 {
   "name": "esm-dayjs",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "description": "2KB immutable date time library alternative to Moment.js with the same modern API ",
   "type": "module",
   "main": "./dayjs.min.js",

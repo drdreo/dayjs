@@ -4,7 +4,6 @@ import negativeYear from '../../src/plugin/negativeYear'
 import utc from '../../src/plugin/utc'
 import { REGEX_PARSE } from '../../src/constant'
 
-
 dayjs.extend(negativeYear)
 dayjs.extend(utc)
 

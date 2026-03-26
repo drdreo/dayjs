@@ -105,7 +105,7 @@ const expressions = {
   MMM: [matchWord, function (input) {
     const months = getLocalePart('months')
     const monthsShort = getLocalePart('monthsShort')
-    const matchIndex = (monthsShort || months.map(_ => _.slice(0, 3))).indexOf(input) + 1
+    const matchIndex = (monthsShort || months.map((_) => _.slice(0, 3))).indexOf(input) + 1
     if (matchIndex < 1) {
       throw new Error()
     }
@@ -212,7 +212,6 @@ const parseFormattedInput = (input, format, utc, dayjs) => {
     return new Date('') // Invalid Date
   }
 }
-
 
 export default (o, C, d) => {
   d.p.customParseFormat = true

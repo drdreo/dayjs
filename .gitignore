@@ -4,6 +4,7 @@
 # IDE
 .idea
 .vscode
+.omc
 
 # npm
 node_modules

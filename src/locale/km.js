@@ -9,7 +9,7 @@ const locale = {
   weekdaysShort: 'អា_ច_អ_ព_ព្រ_សុ_ស'.split('_'),
   monthsShort: 'មករា_កុម្ភៈ_មីនា_មេសា_ឧសភា_មិថុនា_កក្កដា_សីហា_កញ្ញា_តុលា_វិច្ឆិកា_ធ្នូ'.split('_'),
   weekdaysMin: 'អា_ច_អ_ព_ព្រ_សុ_ស'.split('_'),
-  ordinal: n => n,
+  ordinal: (n) => n,
   formats: {
     LT: 'HH:mm',
     LTS: 'HH:mm:ss',
@@ -33,10 +33,9 @@ const locale = {
     y: 'មួយឆ្នាំ',
     yy: '%d ឆ្នាំ'
   },
-  meridiem: hour => (hour > 12 ? 'ល្ងាច' : 'ព្រឹក')
+  meridiem: (hour) => (hour > 12 ? 'ល្ងាច' : 'ព្រឹក')
 }
 
 dayjs.locale(locale, null, true)
 
 export default locale
-

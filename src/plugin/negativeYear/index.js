@@ -26,4 +26,3 @@ export default (_, c, dayjs) => {
     oldParse.bind(this)(cfg)
   }
 }
-

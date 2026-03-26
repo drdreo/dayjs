@@ -1,17 +1,17 @@
 export default (o, c, d) => {
   const sortBy = (method, dates) => {
     if (
-      !dates ||
-      !dates.length ||
-      (dates.length === 1 && !dates[0]) ||
-      (dates.length === 1 && Array.isArray(dates[0]) && !dates[0].length)
+      !dates
+      || !dates.length
+      || (dates.length === 1 && !dates[0])
+      || (dates.length === 1 && Array.isArray(dates[0]) && !dates[0].length)
     ) {
       return null
     }
     if (dates.length === 1 && dates[0].length > 0) {
       [dates] = dates
     }
-    dates = dates.filter(date => date)
+    dates = dates.filter((date) => date)
     let result;
     [result] = dates
     for (let i = 1; i < dates.length; i += 1) {
@@ -31,4 +31,3 @@ export default (o, c, d) => {
     return sortBy('isBefore', args)
   }
 }
-

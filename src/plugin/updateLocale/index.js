@@ -18,4 +18,3 @@ export default (option, Dayjs, dayjs) => {
     return localeConfig // eslint-disable-line consistent-return
   }
 }
-

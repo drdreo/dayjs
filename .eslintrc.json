@@ -12,33 +12,38 @@
     "dayjs": true
   },
   "rules": {
-    "semi": [
-      2,
-      "never"
-    ],
-    "comma-dangle": [
-      "error",
-      "never"
-    ],
-    "no-param-reassign": [
-      0
-    ],
-    "func-names": [
-      0
-    ],
-    "import/no-extraneous-dependencies": [
-      0
-    ],
-    "import/no-unresolved": [
-      2,
-      {
-        "ignore": [
-          "esm-dayjs"
-        ]
+    "semi": [2, "never"],
+    "comma-dangle": ["error", "never"],
+    "no-param-reassign": [0],
+    "func-names": [0],
+    "no-underscore-dangle": [0],
+    "no-restricted-syntax": [0],
+    "no-await-in-loop": [0],
+    "no-constructor-return": [0],
+    "default-param-last": [0],
+    "no-redeclare": [0],
+    "implicit-arrow-linebreak": [0],
+    "max-len": [0],
+    "import/no-extraneous-dependencies": [0],
+    "import/no-unresolved": [2, {
+      "ignore": ["esm-dayjs"]
+    }],
+    "import/extensions": [0]
+  },
+  "overrides": [
+    {
+      "files": ["test/**/*.js"],
+      "globals": {
+        "it": "readonly",
+        "test": "readonly",
+        "describe": "readonly",
+        "expect": "readonly",
+        "beforeEach": "readonly",
+        "afterEach": "readonly",
+        "beforeAll": "readonly",
+        "afterAll": "readonly",
+        "vi": "readonly"
       }
-    ],
-    "import/extensions": [
-      0
-    ]
-  }
+    }
+  ]
 }

@@ -23,19 +23,17 @@ const unitToMS = {
   weeks: MILLISECONDS_A_WEEK
 }
 
-const isDuration = d => d instanceof Duration // eslint-disable-line no-use-before-define
+const isDuration = (d) => d instanceof Duration // eslint-disable-line no-use-before-define
 
 let $d
 let $u
 
-const wrapper = (input, instance, unit) =>
-  new Duration(input, unit, instance.$l) // eslint-disable-line no-use-before-define
+const wrapper = (input, instance, unit) => new Duration(input, unit, instance.$l) // eslint-disable-line no-use-before-define
 
-const prettyUnit = unit => `${$u.p(unit)}s`
-const isNegative = number => number < 0
-const roundNumber = number =>
-  (isNegative(number) ? Math.ceil(number) : Math.floor(number))
-const absolute = number => Math.abs(number)
+const prettyUnit = (unit) => `${$u.p(unit)}s`
+const isNegative = (number) => number < 0
+const roundNumber = (number) => (isNegative(number) ? Math.ceil(number) : Math.floor(number))
+const absolute = (number) => Math.abs(number)
 const getNumberUnitFormat = (number, unit) => {
   if (!number) {
     return {
@@ -84,7 +82,7 @@ class Duration {
       const d = input.match(DURATION_REGEX_PARSE)
       if (d) {
         const properties = d.slice(2)
-        const numberD = properties.map(value => (value != null ? Number(value) : 0));
+        const numberD = properties.map((value) => (value != null ? Number(value) : 0));
         [
           this.$d.years,
           this.$d.months,
@@ -145,13 +143,12 @@ class Duration {
 
     const S = getNumberUnitFormat(seconds, 'S')
 
-    const negativeMode =
-      Y.negative ||
-      M.negative ||
-      D.negative ||
-      H.negative ||
-      m.negative ||
-      S.negative
+    const negativeMode = Y.negative
+      || M.negative
+      || D.negative
+      || H.negative
+      || m.negative
+      || S.negative
 
     const T = H.format || m.format || S.format ? 'T' : ''
     const P = negativeMode ? '-' : ''
@@ -241,31 +238,45 @@ class Duration {
   }
 
   milliseconds() { return this.get('milliseconds') }
+
   asMilliseconds() { return this.as('milliseconds') }
+
   seconds() { return this.get('seconds') }
+
   asSeconds() { return this.as('seconds') }
+
   minutes() { return this.get('minutes') }
+
   asMinutes() { return this.as('minutes') }
+
   hours() { return this.get('hours') }
+
   asHours() { return this.as('hours') }
+
   days() { return this.get('days') }
+
   asDays() { return this.as('days') }
+
   weeks() { return this.get('weeks') }
+
   asWeeks() { return this.as('weeks') }
+
   months() { return this.get('months') }
+
   asMonths() { return this.as('months') }
+
   years() { return this.get('years') }
+
   asYears() { return this.as('years') }
 }
 
-const manipulateDuration = (date, duration, k) =>
-  date.add(duration.years() * k, 'y')
-    .add(duration.months() * k, 'M')
-    .add(duration.days() * k, 'd')
-    .add(duration.hours() * k, 'h')
-    .add(duration.minutes() * k, 'm')
-    .add(duration.seconds() * k, 's')
-    .add(duration.milliseconds() * k, 'ms')
+const manipulateDuration = (date, duration, k) => date.add(duration.years() * k, 'y')
+  .add(duration.months() * k, 'M')
+  .add(duration.days() * k, 'd')
+  .add(duration.hours() * k, 'h')
+  .add(duration.minutes() * k, 'm')
+  .add(duration.seconds() * k, 's')
+  .add(duration.milliseconds() * k, 'ms')
 
 export default (option, Dayjs, dayjs) => {
   $d = dayjs

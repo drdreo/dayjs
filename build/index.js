@@ -1,13 +1,15 @@
 import { rolldown } from 'rolldown'
-import configFactory from './rolldown.config.js'
-import { readdir, readFile, writeFile, cp } from 'node:fs/promises'
+import {
+  readdir, readFile, writeFile, cp
+} from 'node:fs/promises'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import configFactory from './rolldown.config.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const localeNameRegex = /\/\/ (.*) \[/
-const formatName = n => n.replace(/\.js/, '').replace('-', '_')
+const formatName = (n) => n.replace(/\.js/, '').replace('-', '_')
 
 const localePath = join(__dirname, '../src/locale')
 

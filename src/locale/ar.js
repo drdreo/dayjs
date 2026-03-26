@@ -43,7 +43,7 @@ const locale = {
   months,
   monthsShort: months,
   weekStart: 6,
-  meridiem: hour => (hour > 12 ? 'م' : 'ص'),
+  meridiem: (hour) => (hour > 12 ? 'م' : 'ص'),
   relativeTime: {
     future: 'بعد %s',
     past: 'منذ %s',
@@ -63,16 +63,16 @@ const locale = {
     return string
       .replace(
         fromArabNumeralsRegex,
-        match => numberMap[match]
+        (match) => numberMap[match]
       )
       .replace(fromArabComaRegex, ',')
   },
   postformat(string) {
     return string
-      .replace(toArabNumeralsRegex, match => symbolMap[match])
+      .replace(toArabNumeralsRegex, (match) => symbolMap[match])
       .replace(toArabComaRegex, '،')
   },
-  ordinal: n => n,
+  ordinal: (n) => n,
   formats: {
     LT: 'HH:mm',
     LTS: 'HH:mm:ss',

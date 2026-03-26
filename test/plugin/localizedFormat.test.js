@@ -17,8 +17,10 @@ afterEach(() => {
 
 it('Declares English localized formats', () => {
   expect(dayjs.en).toBeDefined()
-  expect(dayjs.en.formats).toBeDefined();
-  ['LT', 'LTS', 'L', 'LL', 'LLL', 'LLLL'].forEach((option) => expect(dayjs.en.formats[option]).toBeDefined())
+  expect(dayjs.en.formats).toBeDefined()
+  ;['LT', 'LTS', 'L', 'LL', 'LLL', 'LLLL'].forEach((option) =>
+    expect(dayjs.en.formats[option]).toBeDefined()
+  )
 })
 
 it('Should not interpolate characters inside square brackets', () => {
@@ -48,15 +50,19 @@ it('Should not interpolate characters inside square brackets', () => {
 
 it('Recognizes localized format options', () => {
   const { formats } = dayjs.en
-  const date = dayjs();
-  ['LT', 'LTS', 'L', 'LL', 'LLL', 'LLLL'].forEach((option) => expect(date.format(option)).toBe(date.format(formats[option])))
+  const date = dayjs()
+  ;['LT', 'LTS', 'L', 'LL', 'LLL', 'LLLL'].forEach((option) =>
+    expect(date.format(option)).toBe(date.format(formats[option]))
+  )
 })
 
 it('Uses correct English formats', () => {
   const date = new Date()
   const actualDate = dayjs(date)
-  const expectedDate = moment(date);
-  ['LT', 'LTS', 'L', 'LL', 'LLL', 'LLLL'].forEach((option) => expect(actualDate.format(option)).toBe(expectedDate.format(option)))
+  const expectedDate = moment(date)
+  ;['LT', 'LTS', 'L', 'LL', 'LLL', 'LLLL'].forEach((option) =>
+    expect(actualDate.format(option)).toBe(expectedDate.format(option))
+  )
 })
 
 it('Uses English formats in other locales as default', () => {
@@ -87,27 +93,30 @@ it('Uses the locale of the dayjs instance', () => {
 
 it('Uses the localized lowercase formats if defined', () => {
   const date = new Date()
-  const znDate = dayjs(date, { locale: znCn });
-  ['l', 'll', 'lll', 'llll'].forEach((option) => expect(znDate.format(option)).toBe(znDate.format(znCn.formats[option])))
+  const znDate = dayjs(date, { locale: znCn })
+  ;['l', 'll', 'lll', 'llll'].forEach((option) =>
+    expect(znDate.format(option)).toBe(znDate.format(znCn.formats[option]))
+  )
 })
 
 it('Uses fallback to xx if xx-yy not available', () => {
-  expect(dayjs('2019-02-01').locale('en-yy').format('MMMM'))
-    .toBe('February')
+  expect(dayjs('2019-02-01').locale('en-yy').format('MMMM')).toBe('February')
 })
 
 it('Uses xx-yy if xx-YY is provided', () => {
-  expect(dayjs('2019-02-01').locale('es-US').format('MMMM'))
-    .toBe('febrero')
+  expect(dayjs('2019-02-01').locale('es-US').format('MMMM')).toBe('febrero')
 })
 
 it('Uses the localized uppercase formats as a base for lowercase formats, if not defined', () => {
   const date = new Date()
-  const spanishDate = dayjs(date, { locale: es });
+  const spanishDate = dayjs(date, { locale: es })
 
-  ['l', 'll', 'lll', 'llll'].forEach((option) => {
+  ;['l', 'll', 'lll', 'llll'].forEach((option) => {
     const upperCaseFormat = es.formats[option.toUpperCase()]
-    const adaptedFormat = upperCaseFormat.replace(/(\[[^\]]+])|(MMMM|MM|DD|dddd)/g, (_, a, b) => a || b.slice(1))
+    const adaptedFormat = upperCaseFormat.replace(
+      /(\[[^\]]+])|(MMMM|MM|DD|dddd)/g,
+      (_, a, b) => a || b.slice(1)
+    )
     expect(spanishDate.format(option)).toBe(spanishDate.format(adaptedFormat))
   })
 })

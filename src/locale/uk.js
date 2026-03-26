@@ -1,14 +1,24 @@
 // Ukrainian [uk]
 import dayjs from 'esm-dayjs'
 
-const monthFormat = 'січня_лютого_березня_квітня_травня_червня_липня_серпня_вересня_жовтня_листопада_грудня'.split('_')
-const monthStandalone = 'січень_лютий_березень_квітень_травень_червень_липень_серпень_вересень_жовтень_листопад_грудень'.split('_')
+const monthFormat =
+  'січня_лютого_березня_квітня_травня_червня_липня_серпня_вересня_жовтня_листопада_грудня'.split(
+    '_'
+  )
+const monthStandalone =
+  'січень_лютий_березень_квітень_травень_червень_липень_серпень_вересень_жовтень_листопад_грудень'.split(
+    '_'
+  )
 
 const MONTHS_IN_FORMAT = /D[oD]?(\[[^[\]]*\]|\s)+MMMM?/
 
 function plural(word, num) {
   const forms = word.split('_')
-  return num % 10 === 1 && num % 100 !== 11 ? forms[0] : (num % 10 >= 2 && num % 10 <= 4 && (num % 100 < 10 || num % 100 >= 20) ? forms[1] : forms[2]) // eslint-disable-line
+  return num % 10 === 1 && num % 100 !== 11
+    ? forms[0]
+    : num % 10 >= 2 && num % 10 <= 4 && (num % 100 < 10 || num % 100 >= 20)
+      ? forms[1]
+      : forms[2] // eslint-disable-line
 }
 function relativeTimeWithPlural(number, withoutSuffix, key) {
   const format = {
@@ -21,7 +31,8 @@ function relativeTimeWithPlural(number, withoutSuffix, key) {
   }
   if (key === 'm') {
     return withoutSuffix ? 'хвилина' : 'хвилину'
-  } if (key === 'h') {
+  }
+  if (key === 'h') {
     return withoutSuffix ? 'година' : 'годину'
   }
 

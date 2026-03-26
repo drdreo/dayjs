@@ -1,0 +1,21 @@
+{
+  "rules": {
+    "no-unused-vars": "warn",
+    "no-redeclare": "off",
+    "no-constructor-return": "off",
+    "default-param-last": "off"
+  },
+  "env": {
+    "es2022": true,
+    "browser": true
+  },
+  "overrides": [
+    {
+      "files": ["test/**/*.js"],
+      "env": {
+        "vitest": true
+      }
+    }
+  ],
+  "ignorePatterns": ["node_modules", "locale", "plugin", "esm", "dayjs.min.js"]
+}

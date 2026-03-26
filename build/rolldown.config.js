@@ -3,9 +3,7 @@ export default (config) => {
   return {
     input: {
       input,
-      external: [
-        'esm-dayjs'
-      ]
+      external: ['esm-dayjs']
     },
     output: {
       file: fileName,

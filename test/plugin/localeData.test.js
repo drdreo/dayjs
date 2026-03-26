@@ -19,7 +19,7 @@ afterEach(() => {
 })
 
 describe('Instance localeData', () => {
-  ['zh-cn', 'en', 'fr'].forEach((lo) => {
+  ;['zh-cn', 'en', 'fr'].forEach((lo) => {
     it(`Locale: ${lo}`, () => {
       dayjs.locale(lo)
       moment.locale(lo)
@@ -49,7 +49,7 @@ describe('Instance localeData', () => {
 })
 
 it('Global localeData', () => {
-  ['zh-cn', 'en', 'fr'].forEach((lo) => {
+  ;['zh-cn', 'en', 'fr'].forEach((lo) => {
     dayjs.locale(lo)
     moment.locale(lo)
     const dayjsLocaleData = dayjs.localeData()
@@ -68,7 +68,7 @@ it('Global localeData', () => {
 })
 
 it('Listing the months and weekdays', () => {
-  ['zh-cn', 'en', 'fr'].forEach((lo) => {
+  ;['zh-cn', 'en', 'fr'].forEach((lo) => {
     dayjs.locale(lo)
     moment.locale(lo)
     expect(dayjs.months()).toEqual(moment.months())

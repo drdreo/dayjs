@@ -1,8 +1,14 @@
 // Belarusian [be]
 import dayjs from 'esm-dayjs'
 
-const monthFormat = 'студзеня_лютага_сакавіка_красавіка_траўня_чэрвеня_ліпеня_жніўня_верасня_кастрычніка_лістапада_снежня'.split('_')
-const monthStandalone = 'студзень_лютый_сакавік_красавік_травень_чэрвень_ліпень_жнівень_верасень_кастрычнік_лістапад_снежань'.split('_')
+const monthFormat =
+  'студзеня_лютага_сакавіка_красавіка_траўня_чэрвеня_ліпеня_жніўня_верасня_кастрычніка_лістапада_снежня'.split(
+    '_'
+  )
+const monthStandalone =
+  'студзень_лютый_сакавік_красавік_травень_чэрвень_ліпень_жнівень_верасень_кастрычнік_лістапад_снежань'.split(
+    '_'
+  )
 
 const monthShortFormat = 'студ_лют_сак_крас_трав_чэрв_ліп_жнів_вер_каст_ліст_снеж.'.split('_')
 const monthShortStandalone = 'студ_лют_сак_крас_трав_чэрв_ліп_жнів_вер_каст_ліст_снеж'.split('_')
@@ -11,7 +17,11 @@ const MONTHS_IN_FORMAT = /D[oD]?(\[[^[\]]*\]|\s)+MMMM?/
 
 function plural(word, num) {
   const forms = word.split('_')
-  return num % 10 === 1 && num % 100 !== 11 ? forms[0] : (num % 10 >= 2 && num % 10 <= 4 && (num % 100 < 10 || num % 100 >= 20) ? forms[1] : forms[2]) // eslint-disable-line
+  return num % 10 === 1 && num % 100 !== 11
+    ? forms[0]
+    : num % 10 >= 2 && num % 10 <= 4 && (num % 100 < 10 || num % 100 >= 20)
+      ? forms[1]
+      : forms[2] // eslint-disable-line
 }
 function relativeTimeWithPlural(number, withoutSuffix, key) {
   const format = {
@@ -24,7 +34,8 @@ function relativeTimeWithPlural(number, withoutSuffix, key) {
   }
   if (key === 'm') {
     return withoutSuffix ? 'хвіліна' : 'хвіліну'
-  } if (key === 'h') {
+  }
+  if (key === 'h') {
     return withoutSuffix ? 'гадзіна' : 'гадзіну'
   }
 
@@ -85,9 +96,11 @@ const locale = {
   meridiem: (hour) => {
     if (hour < 4) {
       return 'ночы'
-    } if (hour < 12) {
+    }
+    if (hour < 12) {
       return 'раніцы'
-    } if (hour < 17) {
+    }
+    if (hour < 17) {
       return 'дня'
     }
     return 'вечара'

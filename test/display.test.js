@@ -81,8 +81,7 @@ it('Format meridiens a A am / pm', () => {
   expect(dayjs(time).format('A')).toBe('AM')
   expect(dayjs(time).format('A')).toBe(moment(time).format('A'))
   expect(dayjs(time).locale('ja').format('a')).toBe('午前')
-  expect(dayjs(time).locale('ja').format('a'))
-    .toBe(moment(time).locale('ja').format('a'))
+  expect(dayjs(time).locale('ja').format('a')).toBe(moment(time).locale('ja').format('a'))
 
   const time2 = '2018-05-02T23:00:00.000'
   expect(dayjs(time2).format('a')).toBe('pm')
@@ -90,8 +89,7 @@ it('Format meridiens a A am / pm', () => {
   expect(dayjs(time2).format('A')).toBe('PM')
   expect(dayjs(time2).format('A')).toBe(moment(time2).format('A'))
   expect(dayjs(time2).locale('ja').format('a')).toBe('午後')
-  expect(dayjs(time2).locale('ja').format('a'))
-    .toBe(moment(time2).locale('ja').format('a'))
+  expect(dayjs(time2).locale('ja').format('a')).toBe(moment(time2).locale('ja').format('a'))
 })
 
 it('Format Minute m mm', () => {
@@ -124,28 +122,15 @@ it('Format Time Zone ZZ', () => {
 })
 
 it('Format ddd dd MMM with short locale', () => {
-  expect(dayjs()
-    .locale(th)
-    .format('dd')).toBe(moment()
-    .locale('th')
-    .format('dd'))
-  expect(dayjs()
-    .locale(th)
-    .format('ddd')).toBe(moment()
-    .locale('th')
-    .format('ddd'))
-  expect(dayjs()
-    .locale(th)
-    .format('MMM')).toBe(moment()
-    .locale('th')
-    .format('MMM'))
+  expect(dayjs().locale(th).format('dd')).toBe(moment().locale('th').format('dd'))
+  expect(dayjs().locale(th).format('ddd')).toBe(moment().locale('th').format('ddd'))
+  expect(dayjs().locale(th).format('MMM')).toBe(moment().locale('th').format('MMM'))
 })
 
 it('Format token value is 0', () => {
   const sundayDate = '2000-01-02'
   const sundayStr = 'd H m s'
-  expect(dayjs(sundayDate).format(sundayStr))
-    .toBe(moment(sundayDate).format(sundayStr))
+  expect(dayjs(sundayDate).format(sundayStr)).toBe(moment(sundayDate).format(sundayStr))
 })
 
 it('Format Complex with other string - : / ', () => {
@@ -237,8 +222,12 @@ it('Days in Month', () => {
 })
 
 it('Utc Offset', () => {
-  expect(dayjs('2013-01-01T00:00:00.000').utcOffset()).toBe(moment('2013-01-01T00:00:00.000').utcOffset())
-  expect(dayjs('2013-01-01T05:00:00.000').utcOffset()).toBe(moment('2013-01-01T05:00:00.000').utcOffset())
+  expect(dayjs('2013-01-01T00:00:00.000').utcOffset()).toBe(
+    moment('2013-01-01T00:00:00.000').utcOffset()
+  )
+  expect(dayjs('2013-01-01T05:00:00.000').utcOffset()).toBe(
+    moment('2013-01-01T05:00:00.000').utcOffset()
+  )
 })
 
 it('As Javascript Date -> toDate', () => {
@@ -254,7 +243,7 @@ it('As Javascript Date -> toDate', () => {
 
 it('As JSON -> toJSON', () => {
   expect(dayjs().toJSON()).toBe(moment().toJSON())
-  global.console.warn = vi.fn()// moment.js otherString will throw warn
+  global.console.warn = vi.fn() // moment.js otherString will throw warn
   expect(dayjs('otherString').toJSON()).toBe(moment('otherString').toJSON())
   expect(dayjs('otherString').toJSON()).toBe(null)
 })

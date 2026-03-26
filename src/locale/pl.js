@@ -2,9 +2,9 @@
 import dayjs from 'esm-dayjs'
 
 function plural(n) {
-  return (n % 10 < 5) && (n % 10 > 1) && ((~~(n / 10) % 10) !== 1) // eslint-disable-line
+  return n % 10 < 5 && n % 10 > 1 && ~~(n / 10) % 10 !== 1 // eslint-disable-line
 }
-/* eslint-disable */ 
+/* eslint-disable */
 function translate(number, withoutSuffix, key) {
   const result = `${number} `
   switch (key) {
@@ -24,8 +24,14 @@ function translate(number, withoutSuffix, key) {
 }
 /* eslint-enable */
 
-const monthFormat = 'stycznia_lutego_marca_kwietnia_maja_czerwca_lipca_sierpnia_września_października_listopada_grudnia'.split('_')
-const monthStandalone = 'styczeń_luty_marzec_kwiecień_maj_czerwiec_lipiec_sierpień_wrzesień_październik_listopad_grudzień'.split('_')
+const monthFormat =
+  'stycznia_lutego_marca_kwietnia_maja_czerwca_lipca_sierpnia_września_października_listopada_grudnia'.split(
+    '_'
+  )
+const monthStandalone =
+  'styczeń_luty_marzec_kwiecień_maj_czerwiec_lipiec_sierpień_wrzesień_październik_listopad_grudzień'.split(
+    '_'
+  )
 const MONTHS_IN_FORMAT = /D MMMM/
 
 const months = (dayjsInstance, format) => {

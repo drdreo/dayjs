@@ -61,10 +61,8 @@ it('ReferenceTime', () => {
   dates.forEach((d) => {
     const dayjsResult = dayjs(now).calendar(d.date)
     const momentjsResult = moment(now).calendar(d.date)
-    expect(dayjsResult)
-      .toEqual(momentjsResult)
-    expect(dayjsResult.indexOf(d.result) > -1)
-      .toBe(true)
+    expect(dayjsResult).toEqual(momentjsResult)
+    expect(dayjsResult.indexOf(d.result) > -1).toBe(true)
   })
 })
 
@@ -76,8 +74,9 @@ it('Custom format', () => {
   expect(dayjs().calendar(null, format)).toEqual(moment().calendar(null, format))
   const now = '2015-01-15T14:21:22.000Z'
   const nextDayWithoutFormat = '2015-01-14T11:23:55.000Z'
-  expect(dayjs(now).calendar(nextDayWithoutFormat, format))
-    .toEqual(moment(now).calendar(nextDayWithoutFormat, format))
+  expect(dayjs(now).calendar(nextDayWithoutFormat, format)).toEqual(
+    moment(now).calendar(nextDayWithoutFormat, format)
+  )
 })
 
 it('Custom callback', () => {
@@ -87,8 +86,9 @@ it('Custom callback', () => {
   }
   const now = '2015-01-15T14:21:22.000Z'
   const nextDayWithoutFormat = '2015-01-14T11:23:55.000Z'
-  expect(dayjs(now).calendar(nextDayWithoutFormat, callbacks))
-    .toEqual(moment(now).calendar(nextDayWithoutFormat, callbacks))
+  expect(dayjs(now).calendar(nextDayWithoutFormat, callbacks)).toEqual(
+    moment(now).calendar(nextDayWithoutFormat, callbacks)
+  )
 })
 
 it('Calls callback', () => {
@@ -136,6 +136,5 @@ it('set global calendar in locale file', () => {
     sameElse: 'YYYY/MM/DD'
   }
   dayjs.locale(zhCn)
-  expect(dayjs(now).calendar())
-    .toEqual(moment(now).locale('zh-cn').calendar())
+  expect(dayjs(now).calendar()).toEqual(moment(now).locale('zh-cn').calendar())
 })

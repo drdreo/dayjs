@@ -71,7 +71,7 @@ export default (o, c, d) => {
   // https://github.com/moment/luxon/blob/master/src/datetime.js#L76
   const fixOffset = (localTS, o0, tz) => {
     // Our UTC time is just a guess because our offset is just a guess
-    let utcGuess = localTS - (o0 * 60 * 1000)
+    let utcGuess = localTS - o0 * 60 * 1000
     // Test whether the zone matches the offset for this ts
     const o2 = tzOffset(utcGuess, tz)
     // If so, offset didn't change and we're done
@@ -87,7 +87,7 @@ export default (o, c, d) => {
     }
     // If it's different, we're in a hole time.
     // The offset has changed, but the we don't adjust the time
-    return [localTS - (Math.min(o2, o3) * 60 * 1000), Math.max(o2, o3)]
+    return [localTS - Math.min(o2, o3) * 60 * 1000, Math.max(o2, o3)]
   }
 
   const proto = c.prototype
@@ -97,14 +97,14 @@ export default (o, c, d) => {
     const date = this.toDate()
     const target = date.toLocaleString('en-US', { timeZone: timezone })
     const diff = Math.round((date - new Date(target)) / 1000 / 60)
-    const offset = (-Math.round(date.getTimezoneOffset() / 15) * 15) - diff
+    const offset = -Math.round(date.getTimezoneOffset() / 15) * 15 - diff
     const isUTC = !Number(offset)
     let ins
-    if (isUTC) { // if utcOffset is 0, turn it to UTC mode
+    if (isUTC) {
+      // if utcOffset is 0, turn it to UTC mode
       ins = this.utcOffset(0, keepLocalTime)
     } else {
-      ins = d(target, { locale: this.$L }).$set(MS, this.$ms)
-        .utcOffset(offset, true)
+      ins = d(target, { locale: this.$L }).$set(MS, this.$ms).utcOffset(offset, true)
       if (keepLocalTime) {
         const newOffset = ins.utcOffset()
         ins = ins.add(oldOffset - newOffset, MIN)
@@ -117,7 +117,9 @@ export default (o, c, d) => {
   proto.offsetName = function (type) {
     // type: short(default) / long
     const zone = this.$x.$timezone || d.tz.guess()
-    const result = makeFormatParts(this.valueOf(), zone, { timeZoneName: type }).find((m) => m.type.toLowerCase() === 'timezonename')
+    const result = makeFormatParts(this.valueOf(), zone, { timeZoneName: type }).find(
+      (m) => m.type.toLowerCase() === 'timezonename'
+    )
     return result && result.value
   }
 

@@ -82,7 +82,7 @@ describe('Convert', () => {
   })
 
   it('convert to target time', () => {
-    [dayjs, moment].forEach((_) => {
+    ;[dayjs, moment].forEach((_) => {
       const losAngeles = _('2014-06-01T12:00:00Z').tz('America/Los_Angeles')
       expect(losAngeles.format()).toBe('2014-06-01T05:00:00-07:00')
       expect(losAngeles.valueOf()).toBe(1401624000000)
@@ -97,7 +97,7 @@ describe('Convert', () => {
   })
 
   it('DST', () => {
-    [dayjs, moment].forEach((_) => {
+    ;[dayjs, moment].forEach((_) => {
       const jun = _('2014-06-01T12:00:00Z')
       const dec = _('2014-12-01T12:00:00Z')
       expect(jun.tz('America/Los_Angeles').format('ha')).toBe('5am')
@@ -114,7 +114,7 @@ describe('Convert', () => {
   })
 
   it('format Z', () => {
-    [dayjs, moment].forEach((_) => {
+    ;[dayjs, moment].forEach((_) => {
       const t = _('2020-08-06T03:48:10.258Z').tz(TOKYO)
       expect(t.format('Z')).toBe('+09:00')
     })
@@ -178,8 +178,8 @@ describe('DST, a time that never existed Fall Back', () => {
   // In the fall, at the end of DST
 
   it('2012-11-04 00:59:59', () => {
-    const s = '2012-11-04 00:59:59';
-    [dayjs, moment].forEach((_) => {
+    const s = '2012-11-04 00:59:59'
+    ;[dayjs, moment].forEach((_) => {
       const d = _.tz(s, NY)
       expect(d.format()).toBe('2012-11-04T00:59:59-04:00')
       expect(d.utcOffset()).toBe(-240)
@@ -187,8 +187,8 @@ describe('DST, a time that never existed Fall Back', () => {
     })
   })
   it('2012-11-04 00:59:59', () => {
-    const s = '2012-11-04 00:59:59';
-    [dayjs, moment].forEach((_) => {
+    const s = '2012-11-04 00:59:59'
+    ;[dayjs, moment].forEach((_) => {
       const d = _.tz(s, NY)
       expect(d.format()).toBe('2012-11-04T00:59:59-04:00')
       expect(d.utcOffset()).toBe(-240)
@@ -201,8 +201,8 @@ describe('DST, a time that never existed Fall Back', () => {
   // and dayjs result it as "2012-11-04T01:59:00-05:00"
 
   it('2012-11-04 02:00:00', () => {
-    const s = '2012-11-04 02:00:00';
-    [dayjs, moment].forEach((_) => {
+    const s = '2012-11-04 02:00:00'
+    ;[dayjs, moment].forEach((_) => {
       const d = _.tz(s, NY)
       expect(d.format()).toBe('2012-11-04T02:00:00-05:00')
       expect(d.utcOffset()).toBe(-300)

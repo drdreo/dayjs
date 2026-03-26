@@ -14,8 +14,18 @@ afterEach(() => {
 
 describe('StartOf EndOf', () => {
   it('StartOf EndOf Year ... with s and upper case', () => {
-    const testArr = ['Year', 'year', 'YearS', 'month', 'day', 'date',
-      'week', 'hour', 'minute', 'second']
+    const testArr = [
+      'Year',
+      'year',
+      'YearS',
+      'month',
+      'day',
+      'date',
+      'week',
+      'hour',
+      'minute',
+      'second'
+    ]
     testArr.forEach((d) => {
       expect(dayjs().startOf(d).valueOf()).toBe(moment().startOf(d).valueOf())
       expect(dayjs().endOf(d).valueOf()).toBe(moment().endOf(d).valueOf())
@@ -28,14 +38,25 @@ describe('StartOf EndOf', () => {
   })
 
   it('StartOf week with locale', () => {
-    const testDate = [undefined, '2019-02-10', '2019-02-11', '2019-02-12', '2019-02-13', '2019-02-14', '2019-02-15', '2019-02-16']
+    const testDate = [
+      undefined,
+      '2019-02-10',
+      '2019-02-11',
+      '2019-02-12',
+      '2019-02-13',
+      '2019-02-14',
+      '2019-02-15',
+      '2019-02-16'
+    ]
     const testLocale = ['zh-cn', 'ar', 'en']
     testDate.forEach((d) => {
       testLocale.forEach((l) => {
-        expect(dayjs(d).locale(l).startOf('week').date())
-          .toBe(moment(d).locale(l).startOf('week').date())
-        expect(dayjs(d).locale(l).endOf('week').date())
-          .toBe(moment(d).locale(l).endOf('week').date())
+        expect(dayjs(d).locale(l).startOf('week').date()).toBe(
+          moment(d).locale(l).startOf('week').date()
+        )
+        expect(dayjs(d).locale(l).endOf('week').date()).toBe(
+          moment(d).locale(l).endOf('week').date()
+        )
       })
     })
   })
@@ -56,9 +77,15 @@ it('Add Time days', () => {
   expect(dayjs().add(1, 'days').valueOf()).toBe(moment().add(1, 'days').valueOf())
   expect(dayjs().add(1, 'M').valueOf()).toBe(moment().add(1, 'M').valueOf())
   expect(dayjs().add(1, 'y').valueOf()).toBe(moment().add(1, 'y').valueOf())
-  expect(dayjs('20111031').add(1, 'months').valueOf()).toBe(moment('20111031').add(1, 'months').valueOf())
-  expect(dayjs('20160131').add(1, 'months').valueOf()).toBe(moment('20160131').add(1, 'months').valueOf())
-  expect(dayjs('20160229').add(1, 'year').valueOf()).toBe(moment('20160229').add(1, 'year').valueOf())
+  expect(dayjs('20111031').add(1, 'months').valueOf()).toBe(
+    moment('20111031').add(1, 'months').valueOf()
+  )
+  expect(dayjs('20160131').add(1, 'months').valueOf()).toBe(
+    moment('20160131').add(1, 'months').valueOf()
+  )
+  expect(dayjs('20160229').add(1, 'year').valueOf()).toBe(
+    moment('20160229').add(1, 'year').valueOf()
+  )
 
   expect(dayjs().add('2', 'years').valueOf()).toBe(moment().add('2', 'years').valueOf())
 })

@@ -17,7 +17,7 @@ describe('Parse', () => {
   })
 
   it('moment-js like formatted dates', () => {
-    global.console.warn = vi.fn()// moment.js '2018-4-1 1:1:1:22' will throw warn
+    global.console.warn = vi.fn() // moment.js '2018-4-1 1:1:1:22' will throw warn
     let d = '20130108'
     expect(dayjs(d).valueOf()).toBe(moment(d).valueOf())
     d = '2018-04-24'
@@ -89,8 +89,10 @@ describe('Parse', () => {
   })
 
   it('String Other, Undefined and Null and isValid', () => {
-    global.console.warn = vi.fn()// moment.js otherString will throw warn
-    expect(dayjs('otherString').toString().toLowerCase()).toBe(moment('otherString').toString().toLowerCase())
+    global.console.warn = vi.fn() // moment.js otherString will throw warn
+    expect(dayjs('otherString').toString().toLowerCase()).toBe(
+      moment('otherString').toString().toLowerCase()
+    )
     expect(dayjs(undefined).toDate()).toEqual(moment(undefined).toDate())
     expect(dayjs().isValid()).toBe(true)
     expect(dayjs(undefined).isValid()).toBe(true)

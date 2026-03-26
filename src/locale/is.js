@@ -16,22 +16,16 @@ const texts = {
 }
 
 function resolveTemplate(key, number, isFuture, withoutSuffix) {
-  const suffixIndex = isFuture
-    ? 1
-    : 2
+  const suffixIndex = isFuture ? 1 : 2
 
-  const index = withoutSuffix
-    ? 0
-    : suffixIndex
+  const index = withoutSuffix ? 0 : suffixIndex
 
   const keyShouldBeSingular = key.length === 2 && number % 10 === 1
 
   const correctedKey = keyShouldBeSingular ? key[0] : key
   const unitText = texts[correctedKey]
   const text = unitText[index]
-  return key.length === 1
-    ? text
-    : `%d ${text}`
+  return key.length === 1 ? text : `%d ${text}`
 }
 
 function relativeTimeFormatter(number, withoutSuffix, key, isFuture) {
@@ -42,8 +36,11 @@ function relativeTimeFormatter(number, withoutSuffix, key, isFuture) {
 
 const locale = {
   name: 'is',
-  weekdays: 'sunnudagur_mánudagur_þriðjudagur_miðvikudagur_fimmtudagur_föstudagur_laugardagur'.split('_'),
-  months: 'janúar_febrúar_mars_apríl_maí_júní_júlí_ágúst_september_október_nóvember_desember'.split('_'),
+  weekdays:
+    'sunnudagur_mánudagur_þriðjudagur_miðvikudagur_fimmtudagur_föstudagur_laugardagur'.split('_'),
+  months: 'janúar_febrúar_mars_apríl_maí_júní_júlí_ágúst_september_október_nóvember_desember'.split(
+    '_'
+  ),
   weekStart: 1,
   weekdaysShort: 'sun_mán_þri_mið_fim_fös_lau'.split('_'),
   monthsShort: 'jan_feb_mar_apr_maí_jún_júl_ágú_sep_okt_nóv_des'.split('_'),

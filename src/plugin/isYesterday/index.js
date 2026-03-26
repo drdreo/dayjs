@@ -4,8 +4,6 @@ export default (o, c, d) => {
     const comparisonTemplate = 'YYYY-MM-DD'
     const yesterday = d().subtract(1, 'day')
 
-    return (
-      this.format(comparisonTemplate) === yesterday.format(comparisonTemplate)
-    )
+    return this.format(comparisonTemplate) === yesterday.format(comparisonTemplate)
   }
 }

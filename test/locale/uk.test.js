@@ -41,10 +41,10 @@ it('RelativeTime: Time from X', () => {
   T.forEach((t) => {
     dayjs.locale('uk')
     moment.locale('uk')
-    expect(dayjs().from(dayjs().add(t[0], t[1])))
-      .toBe(moment().from(moment().add(t[0], t[1])))
-    expect(dayjs().from(dayjs().add(t[0], t[1]), true))
-      .toBe(moment().from(moment().add(t[0], t[1]), true))
+    expect(dayjs().from(dayjs().add(t[0], t[1]))).toBe(moment().from(moment().add(t[0], t[1])))
+    expect(dayjs().from(dayjs().add(t[0], t[1]), true)).toBe(
+      moment().from(moment().add(t[0], t[1]), true)
+    )
   })
 })
 

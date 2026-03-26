@@ -70,7 +70,8 @@ Locale.forEach((locale) => {
       }
     }
     // function pass date return string or number or null
-    if (name !== 'en') { // en ordinal set in advancedFormat
+    if (name !== 'en') {
+      // en ordinal set in advancedFormat
       for (let i = 1; i <= 31; i += 1) {
         expect(ordinal(i)).toEqual(expect.anything())
       }
@@ -78,27 +79,17 @@ Locale.forEach((locale) => {
 
     expect(dayjs().locale(name).$locale().name).toBe(name)
     if (formats) {
-      const {
-        LT,
-        LTS,
-        L,
-        LL,
-        LLL,
-        LLLL,
-        l,
-        ll,
-        lll,
-        llll,
-        ...remainingFormats
-      } = formats
-      expect(formats).toEqual(expect.objectContaining({
-        L: expect.any(String),
-        LL: expect.any(String),
-        LLL: expect.any(String),
-        LLLL: expect.any(String),
-        LT: expect.any(String),
-        LTS: expect.any(String)
-      }))
+      const { LT, LTS, L, LL, LLL, LLLL, l, ll, lll, llll, ...remainingFormats } = formats
+      expect(formats).toEqual(
+        expect.objectContaining({
+          L: expect.any(String),
+          LL: expect.any(String),
+          LLL: expect.any(String),
+          LLLL: expect.any(String),
+          LT: expect.any(String),
+          LTS: expect.any(String)
+        })
+      )
       expect(Object.keys(remainingFormats).length).toEqual(0)
       if (l) expect(l).toEqual(expect.any(String))
       if (ll) expect(ll).toEqual(expect.any(String))
@@ -106,9 +97,9 @@ Locale.forEach((locale) => {
       if (llll) expect(llll).toEqual(expect.any(String))
     }
     if (relativeTime) {
-      expect(Object.keys(relativeTime).sort()).toEqual(['d', 'dd', 'future', 'h', 'hh', 'm', 'mm', 'M', 'MM',
-        'past', 's', 'y', 'yy']
-        .sort())
+      expect(Object.keys(relativeTime).sort()).toEqual(
+        ['d', 'dd', 'future', 'h', 'hh', 'm', 'mm', 'M', 'MM', 'past', 's', 'y', 'yy'].sort()
+      )
     }
 
     if (meridiem) {

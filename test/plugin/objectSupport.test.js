@@ -32,31 +32,49 @@ const tests = [
   [{ year: 2010, month: 1, date: 12 }, '2010-02-12 00:00:00.000'],
   [
     {
-      hour: 15, minute: 25, second: 50, millisecond: 125
+      hour: 15,
+      minute: 25,
+      second: 50,
+      millisecond: 125
     },
     `${currentYear}-${currentMonth}-${currentDate} 15:25:50.125`,
-    `${currentUTCYear}-${currentUTCMonth}-${currentUTCDate} 15:25:50.125`],
+    `${currentUTCYear}-${currentUTCMonth}-${currentUTCDate} 15:25:50.125`
+  ],
   [
     {
-      year: 2010, month: 1, day: 12, hours: 1
+      year: 2010,
+      month: 1,
+      day: 12,
+      hours: 1
     },
     '2010-02-12 01:00:00.000'
   ],
   [
     {
-      year: 2010, month: 1, date: 12, hours: 1
+      year: 2010,
+      month: 1,
+      date: 12,
+      hours: 1
     },
     '2010-02-12 01:00:00.000'
   ],
   [
     {
-      year: 2010, month: 1, day: 12, hours: 1, minutes: 1
+      year: 2010,
+      month: 1,
+      day: 12,
+      hours: 1,
+      minutes: 1
     },
     '2010-02-12 01:01:00.000'
   ],
   [
     {
-      year: 2010, month: 1, date: 12, hours: 1, minutes: 1
+      year: 2010,
+      month: 1,
+      date: 12,
+      hours: 1,
+      minutes: 1
     },
     '2010-02-12 01:01:00.000'
   ],
@@ -109,7 +127,13 @@ const tests = [
   ],
   [
     {
-      y: 2010, M: 1, d: 14, h: 15, m: 25, s: 50, ms: 125
+      y: 2010,
+      M: 1,
+      d: 14,
+      h: 15,
+      m: 25,
+      s: 50,
+      ms: 125
     },
     '2010-02-14 15:25:50.125'
   ]
@@ -117,12 +141,10 @@ const tests = [
 
 describe('parse empty object', () => {
   it('local', () => {
-    expect(dayjs({}).format())
-      .toBe(moment({}).format())
+    expect(dayjs({}).format()).toBe(moment({}).format())
   })
   it('utc', () => {
-    expect(dayjs.utc({}).format())
-      .toBe(moment.utc({}).format())
+    expect(dayjs.utc({}).format()).toBe(moment.utc({}).format())
   })
 })
 

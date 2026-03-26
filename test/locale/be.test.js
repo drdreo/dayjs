@@ -43,17 +43,10 @@ it('Belarusian locale relative time in past and future with suffix', () => {
   const locales = ['be']
   locales.forEach((locale) => {
     cases.forEach((c) => {
-      expect(dayjs()
-        .add(c[0], c[1])
-        .locale(locale)
-        .fromNow()).toBe(c[2])
-      expect(dayjs()
-        .add(c[0], c[1])
-        .locale(locale)
-        .fromNow()).toBe(moment()
-        .add(c[0], c[1])
-        .locale(locale)
-        .fromNow())
+      expect(dayjs().add(c[0], c[1]).locale(locale).fromNow()).toBe(c[2])
+      expect(dayjs().add(c[0], c[1]).locale(locale).fromNow()).toBe(
+        moment().add(c[0], c[1]).locale(locale).fromNow()
+      )
     })
   })
 })
@@ -105,17 +98,10 @@ it('Belarusian locale relative time in past and future without suffix', () => {
   const locales = ['be']
   locales.forEach((locale) => {
     cases.forEach((c) => {
-      expect(dayjs()
-        .add(c[0], c[1])
-        .locale(locale)
-        .fromNow(true)).toBe(c[2])
-      expect(dayjs()
-        .add(c[0], c[1])
-        .locale(locale)
-        .fromNow(true)).toBe(moment()
-        .add(c[0], c[1])
-        .locale(locale)
-        .fromNow(true))
+      expect(dayjs().add(c[0], c[1]).locale(locale).fromNow(true)).toBe(c[2])
+      expect(dayjs().add(c[0], c[1]).locale(locale).fromNow(true)).toBe(
+        moment().add(c[0], c[1]).locale(locale).fromNow(true)
+      )
     })
   })
 })

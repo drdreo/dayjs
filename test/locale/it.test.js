@@ -59,10 +59,10 @@ describe('Italian formats', () => {
     ]
 
     T.forEach((t) => {
-      expect(dayjs().from(dayjs().add(t[0], t[1])))
-        .toBe(moment().from(moment().add(t[0], t[1])))
-      expect(dayjs().from(dayjs().add(t[0], t[1]), true))
-        .toBe(moment().from(moment().add(t[0], t[1]), true))
+      expect(dayjs().from(dayjs().add(t[0], t[1]))).toBe(moment().from(moment().add(t[0], t[1])))
+      expect(dayjs().from(dayjs().add(t[0], t[1]), true)).toBe(
+        moment().from(moment().add(t[0], t[1]), true)
+      )
     })
   })
 
@@ -73,10 +73,8 @@ describe('Italian formats', () => {
     ]
 
     T.forEach((t) => {
-      expect(dayjs().from(dayjs().add(t[0], t[1])))
-        .toBe('qualche secondo fa')
-      expect(dayjs().from(dayjs().add(t[0], t[1]), true))
-        .toBe('qualche secondo')
+      expect(dayjs().from(dayjs().add(t[0], t[1]))).toBe('qualche secondo fa')
+      expect(dayjs().from(dayjs().add(t[0], t[1]), true)).toBe('qualche secondo')
     })
   })
 })

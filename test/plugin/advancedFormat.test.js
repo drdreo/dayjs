@@ -89,15 +89,13 @@ it('Format Hour k kk 24-hour 1 - 24', () => {
 it('Format Week of Year wo', () => {
   const d = '2018-12-01'
   expect(dayjs(d).format('wo')).toBe(moment(d).format('wo'))
-  expect(dayjs(d).locale('zh-cn').format('wo'))
-    .toBe(moment(d).locale('zh-cn').format('wo'))
+  expect(dayjs(d).locale('zh-cn').format('wo')).toBe(moment(d).locale('zh-cn').format('wo'))
 })
 
 it('Format Week of Year wo', () => {
   const d = '2018-12-01'
   expect(dayjs(d).format('wo')).toBe(moment(d).format('wo'))
-  expect(dayjs(d).locale('zh-cn').format('wo'))
-    .toBe(moment(d).locale('zh-cn').format('wo'))
+  expect(dayjs(d).locale('zh-cn').format('wo')).toBe(moment(d).locale('zh-cn').format('wo'))
 })
 
 it('Format Week Year gggg', () => {

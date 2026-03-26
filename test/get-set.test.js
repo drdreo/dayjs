@@ -115,8 +115,7 @@ it('Set Month and Year in last day of month', () => {
 
 it('Set Unknown String', () => {
   const newDate = dayjs().set('Unknown String', 1)
-  expect(newDate.valueOf())
-    .toBe(moment().set('Unknown String', 1).valueOf())
+  expect(newDate.valueOf()).toBe(moment().set('Unknown String', 1).valueOf())
 })
 
 it('Immutable Set', () => {

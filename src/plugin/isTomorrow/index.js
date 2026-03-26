@@ -4,8 +4,6 @@ export default (o, c, d) => {
     const comparisonTemplate = 'YYYY-MM-DD'
     const tomorrow = d().add(1, 'day')
 
-    return (
-      this.format(comparisonTemplate) === tomorrow.format(comparisonTemplate)
-    )
+    return this.format(comparisonTemplate) === tomorrow.format(comparisonTemplate)
   }
 }

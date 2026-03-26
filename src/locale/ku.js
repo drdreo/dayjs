@@ -56,9 +56,7 @@ const locale = {
       .replace(/،/g, ',')
   },
   postformat(string) {
-    return string
-      .replace(/\d/g, (match) => englishToArabicNumbersMap[match])
-      .replace(/,/g, '،')
+    return string.replace(/\d/g, (match) => englishToArabicNumbersMap[match]).replace(/,/g, '،')
   },
   ordinal: (n) => n,
   formats: {

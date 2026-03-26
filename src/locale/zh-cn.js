@@ -46,16 +46,20 @@ const locale = {
     yy: '%d 年'
   },
   meridiem: (hour, minute) => {
-    const hm = (hour * 100) + minute
+    const hm = hour * 100 + minute
     if (hm < 600) {
       return '凌晨'
-    } if (hm < 900) {
+    }
+    if (hm < 900) {
       return '早上'
-    } if (hm < 1100) {
+    }
+    if (hm < 1100) {
       return '上午'
-    } if (hm < 1300) {
+    }
+    if (hm < 1300) {
       return '中午'
-    } if (hm < 1800) {
+    }
+    if (hm < 1800) {
       return '下午'
     }
     return '晚上'

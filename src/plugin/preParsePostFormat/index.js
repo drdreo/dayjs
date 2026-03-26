@@ -24,12 +24,7 @@ export default (option, dayjsClass) => {
   const oldFromTo = dayjsClass.prototype.fromToBase
 
   if (oldFromTo) {
-    dayjsClass.prototype.fromToBase = function (
-      input,
-      withoutSuffix,
-      instance,
-      isFrom
-    ) {
+    dayjsClass.prototype.fromToBase = function (input, withoutSuffix, instance, isFrom) {
       const locale = this.$locale() || instance.$locale()
 
       // original format result

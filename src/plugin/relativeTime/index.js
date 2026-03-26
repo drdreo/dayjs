@@ -42,9 +42,7 @@ export default (o, c, d) => {
     for (let i = 0; i < Tl; i += 1) {
       let t = T[i]
       if (t.d) {
-        result = isFrom
-          ? d(input).diff(instance, t.d, true)
-          : instance.diff(input, t.d, true)
+        result = isFrom ? d(input).diff(instance, t.d, true) : instance.diff(input, t.d, true)
       }
       let abs = (o.rounding || Math.round)(Math.abs(result))
       isFuture = result > 0

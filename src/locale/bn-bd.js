@@ -55,8 +55,8 @@ const locale = {
     LLLL: 'dddd, D MMMM YYYY খ্রিস্টাব্দ, A h:mm সময়'
   },
   meridiem: (hour) =>
-  /* eslint-disable no-nested-ternary */
-    (hour < 4
+    /* eslint-disable no-nested-ternary */
+    hour < 4
       ? 'রাত'
       : hour < 6
         ? 'ভোর'
@@ -68,7 +68,7 @@ const locale = {
               ? 'বিকাল'
               : hour < 20
                 ? 'সন্ধ্যা'
-                : 'রাত'),
+                : 'রাত',
   relativeTime: {
     future: '%s পরে',
     past: '%s আগে',

@@ -13,7 +13,9 @@ export default (_, c, dayjs) => {
       }
       const fullYear = newDate.year()
       if (date.indexOf(`-${fullYear}`) !== -1) {
-        return dayjs(newDate).subtract(fullYear * 2, 'year').toDate()
+        return dayjs(newDate)
+          .subtract(fullYear * 2, 'year')
+          .toDate()
       }
       return date
     }

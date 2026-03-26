@@ -153,7 +153,9 @@ describe('UTC Set', () => {
   })
 
   it('Set UTC Year', () => {
-    expect(dayjs().utc().set('year', 2008).valueOf()).toBe(moment().utc().set('year', 2008).valueOf())
+    expect(dayjs().utc().set('year', 2008).valueOf()).toBe(
+      moment().utc().set('year', 2008).valueOf()
+    )
   })
 
   it('Set UTC Hour', () => {
@@ -161,15 +163,21 @@ describe('UTC Set', () => {
   })
 
   it('Set UTC Minute', () => {
-    expect(dayjs().utc().set('minute', 59).valueOf()).toBe(moment().utc().set('minute', 59).valueOf())
+    expect(dayjs().utc().set('minute', 59).valueOf()).toBe(
+      moment().utc().set('minute', 59).valueOf()
+    )
   })
 
   it('Set UTC Second', () => {
-    expect(dayjs().utc().set('second', 59).valueOf()).toBe(moment().utc().set('second', 59).valueOf())
+    expect(dayjs().utc().set('second', 59).valueOf()).toBe(
+      moment().utc().set('second', 59).valueOf()
+    )
   })
 
   it('Set UTC Millisecond', () => {
-    expect(dayjs().utc().set('millisecond', 999).valueOf()).toBe(moment().utc().set('millisecond', 999).valueOf())
+    expect(dayjs().utc().set('millisecond', 999).valueOf()).toBe(
+      moment().utc().set('millisecond', 999).valueOf()
+    )
   })
 })
 
@@ -229,7 +237,9 @@ describe('UTC Offset', () => {
   it('get utc offset with a number value', () => {
     const time = '2021-02-28 19:40:10'
     const hoursOffset = -8
-    const daysJS = dayjs(time).utc().utcOffset(hoursOffset * 60, true)
+    const daysJS = dayjs(time)
+      .utc()
+      .utcOffset(hoursOffset * 60, true)
     const momentJS = moment(time).utc(true).utcOffset(hoursOffset, true)
 
     expect(daysJS.toISOString()).toEqual(momentJS.toISOString())
@@ -240,8 +250,12 @@ describe('UTC Offset', () => {
   it('get utc offset with a negative valid string value, format: HH:mm', () => {
     const time = '2021-02-28 19:40:10'
     const hoursOffset = -8
-    const daysJS = dayjs(time).utc().utcOffset(`-0${Math.abs(hoursOffset)}:00`, true)
-    const momentJS = moment(time).utc(true).utcOffset(`-0${Math.abs(hoursOffset)}:00`, true)
+    const daysJS = dayjs(time)
+      .utc()
+      .utcOffset(`-0${Math.abs(hoursOffset)}:00`, true)
+    const momentJS = moment(time)
+      .utc(true)
+      .utcOffset(`-0${Math.abs(hoursOffset)}:00`, true)
 
     expect(daysJS.toISOString()).toEqual(momentJS.toISOString())
     expect(daysJS.utcOffset()).toEqual(hoursOffset * 60)
@@ -262,8 +276,12 @@ describe('UTC Offset', () => {
   it('get utc offset with a negative valid string value, format: HHmm', () => {
     const time = '2021-02-28 19:40:10'
     const hoursOffset = -8
-    const daysJS = dayjs(time).utc().utcOffset(`-0${Math.abs(hoursOffset)}00`, true)
-    const momentJS = moment(time).utc(true).utcOffset(`-0${Math.abs(hoursOffset)}00`, true)
+    const daysJS = dayjs(time)
+      .utc()
+      .utcOffset(`-0${Math.abs(hoursOffset)}00`, true)
+    const momentJS = moment(time)
+      .utc(true)
+      .utcOffset(`-0${Math.abs(hoursOffset)}00`, true)
 
     expect(daysJS.toISOString()).toEqual(momentJS.toISOString())
     expect(daysJS.utcOffset()).toEqual(hoursOffset * 60)
@@ -306,7 +324,7 @@ describe('Diff', () => {
   const d1 = '2021-06-07'
   const d2 = '2021-06-06'
   it('utc.diff(utc)', () => {
-    [dayjs, moment].forEach((_) => {
+    ;[dayjs, moment].forEach((_) => {
       expect(_.utc(d1).diff(_.utc(d2), 'days')).toBe(1)
       expect(_.utc(d1).diff(_.utc(d2), 'm')).toBe(1440)
     })
@@ -315,16 +333,12 @@ describe('Diff', () => {
     expect(dayjs().diff()).toBeDefined()
   })
   it('local.diff(utc)', () => {
-    expect(dayjs(d1).diff(dayjs.utc(d2), 'days'))
-      .toBe(moment(d1).diff(moment.utc(d2), 'days'))
-    expect(dayjs(d1).diff(dayjs.utc(d2), 'm'))
-      .toBe(moment(d1).diff(moment.utc(d2), 'm'))
+    expect(dayjs(d1).diff(dayjs.utc(d2), 'days')).toBe(moment(d1).diff(moment.utc(d2), 'days'))
+    expect(dayjs(d1).diff(dayjs.utc(d2), 'm')).toBe(moment(d1).diff(moment.utc(d2), 'm'))
   })
   it('utc.diff(local)', () => {
-    expect(dayjs.utc(d1).diff(d2, 'days'))
-      .toBe(moment.utc(d1).diff(d2, 'days'))
-    expect(dayjs.utc(d1).diff(d2, 'm'))
-      .toBe(moment.utc(d1).diff(d2, 'm'))
+    expect(dayjs.utc(d1).diff(d2, 'days')).toBe(moment.utc(d1).diff(d2, 'days'))
+    expect(dayjs.utc(d1).diff(d2, 'm')).toBe(moment.utc(d1).diff(d2, 'm'))
   })
 })
 

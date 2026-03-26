@@ -5,8 +5,13 @@ export default (option, Dayjs, dayjs) => {
     if (!localeConfig) return
     const customConfigKeys = customConfig ? Object.keys(customConfig) : []
     customConfigKeys.forEach((c) => {
-      if (localeConfig[c] && customConfig[c] && typeof localeConfig[c] === 'object' && typeof customConfig[c] === 'object'
-        && !Array.isArray(localeConfig[c])) {
+      if (
+        localeConfig[c] &&
+        customConfig[c] &&
+        typeof localeConfig[c] === 'object' &&
+        typeof customConfig[c] === 'object' &&
+        !Array.isArray(localeConfig[c])
+      ) {
         localeConfig[c] = {
           ...localeConfig[c],
           ...customConfig[c]

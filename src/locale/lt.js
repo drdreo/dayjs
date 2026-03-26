@@ -1,8 +1,14 @@
 // Lithuanian [lt]
 import dayjs from 'esm-dayjs'
 
-const monthFormat = 'sausio_vasario_kovo_balandžio_gegužės_birželio_liepos_rugpjūčio_rugsėjo_spalio_lapkričio_gruodžio'.split('_')
-const monthStandalone = 'sausis_vasaris_kovas_balandis_gegužė_birželis_liepa_rugpjūtis_rugsėjis_spalis_lapkritis_gruodis'.split('_')
+const monthFormat =
+  'sausio_vasario_kovo_balandžio_gegužės_birželio_liepos_rugpjūčio_rugsėjo_spalio_lapkričio_gruodžio'.split(
+    '_'
+  )
+const monthStandalone =
+  'sausis_vasaris_kovas_balandis_gegužė_birželis_liepa_rugpjūtis_rugsėjis_spalis_lapkritis_gruodis'.split(
+    '_'
+  )
 // eslint-disable-next-line no-useless-escape
 const MONTHS_IN_FORMAT = /D[oD]?(\[[^\[\]]*\]|\s)+MMMM?|MMMM?(\[[^\[\]]*\]|\s)+D[oD]?/
 
@@ -17,7 +23,10 @@ months.f = monthFormat
 
 const locale = {
   name: 'lt',
-  weekdays: 'sekmadienis_pirmadienis_antradienis_trečiadienis_ketvirtadienis_penktadienis_šeštadienis'.split('_'),
+  weekdays:
+    'sekmadienis_pirmadienis_antradienis_trečiadienis_ketvirtadienis_penktadienis_šeštadienis'.split(
+      '_'
+    ),
   weekdaysShort: 'sek_pir_ant_tre_ket_pen_šeš'.split('_'),
   weekdaysMin: 's_p_a_t_k_pn_š'.split('_'),
   months,

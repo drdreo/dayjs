@@ -37,10 +37,7 @@ describe('moment compatibility', () => {
     expectations.forEach((expectation) => {
       const [offset, unit, expectationWithoutSuffix] = expectation
 
-      const momentResult = moment()
-        .add(offset, unit)
-        .locale('is')
-        .fromNow(true)
+      const momentResult = moment().add(offset, unit).locale('is').fromNow(true)
 
       expect(expectationWithoutSuffix).toBe(momentResult)
     })
@@ -50,10 +47,7 @@ describe('moment compatibility', () => {
     expectations.forEach((expectation) => {
       const [offset, unit, , pastExpectation] = expectation
 
-      const momentResult = moment()
-        .add(-offset, unit)
-        .locale('is')
-        .fromNow()
+      const momentResult = moment().add(-offset, unit).locale('is').fromNow()
 
       expect(pastExpectation).toBe(momentResult)
     })
@@ -63,10 +57,7 @@ describe('moment compatibility', () => {
     expectations.forEach((expectation) => {
       const [offset, unit, , , futureExpectation] = expectation
 
-      const momentResult = moment()
-        .add(offset, unit)
-        .locale('is')
-        .fromNow()
+      const momentResult = moment().add(offset, unit).locale('is').fromNow()
 
       expect(futureExpectation).toBe(momentResult)
     })
@@ -78,10 +69,7 @@ describe('Icelandic output matches moment output', () => {
     expectations.forEach((expectation) => {
       const [offset, unit, expectationWithoutSuffix] = expectation
 
-      const result = dayjs()
-        .add(offset, unit)
-        .locale('is')
-        .fromNow(true)
+      const result = dayjs().add(offset, unit).locale('is').fromNow(true)
 
       expect(result).toBe(expectationWithoutSuffix)
     })
@@ -91,10 +79,7 @@ describe('Icelandic output matches moment output', () => {
     expectations.forEach((expectation) => {
       const [offset, unit, , pastExpectation] = expectation
 
-      const result = dayjs()
-        .add(-offset, unit)
-        .locale('is')
-        .fromNow()
+      const result = dayjs().add(-offset, unit).locale('is').fromNow()
 
       expect(result).toBe(pastExpectation)
     })
@@ -104,10 +89,7 @@ describe('Icelandic output matches moment output', () => {
     expectations.forEach((expectation) => {
       const [offset, unit, , , futureExpectation] = expectation
 
-      const result = dayjs()
-        .add(offset, unit)
-        .locale('is')
-        .fromNow()
+      const result = dayjs().add(offset, unit).locale('is').fromNow()
 
       expect(result).toBe(futureExpectation)
     })

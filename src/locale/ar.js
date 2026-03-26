@@ -1,7 +1,9 @@
 // Arabic [ar]
 import dayjs from 'esm-dayjs'
 
-const months = 'يناير_فبراير_مارس_أبريل_مايو_يونيو_يوليو_أغسطس_سبتمبر_أكتوبر_نوفمبر_ديسمبر'.split('_')
+const months = 'يناير_فبراير_مارس_أبريل_مايو_يونيو_يوليو_أغسطس_سبتمبر_أكتوبر_نوفمبر_ديسمبر'.split(
+  '_'
+)
 
 const symbolMap = {
   1: '١',
@@ -61,10 +63,7 @@ const locale = {
   },
   preparse(string) {
     return string
-      .replace(
-        fromArabNumeralsRegex,
-        (match) => numberMap[match]
-      )
+      .replace(fromArabNumeralsRegex, (match) => numberMap[match])
       .replace(fromArabComaRegex, ',')
   },
   postformat(string) {

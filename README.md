@@ -1,30 +1,20 @@
-> **Note:** This is a fork of [iamkun/dayjs](https://github.com/iamkun/dayjs), modified to provide native ESM output. Original work © 2018-present iamkun, licensed under [MIT](./LICENSE).
-
-English | [简体中文](./docs/zh-cn/README.zh-CN.md) | [日本語](./docs/ja/README-ja.md) | [Português Brasileiro](./docs/pt-br/README-pt-br.md) | [한국어](./docs/ko/README-ko.md) | [Español (España)](./docs/es-es/README-es-es.md) | [Русский](./docs/ru/README-ru.md) | [Türkçe](./docs/tr/README-tr.md) | [සිංහල](./docs/si/README-si.md) | [עברית](./docs/he/README-he.md)
+> **Note:** This is an **ESM-only** fork of [iamkun/dayjs](https://github.com/iamkun/dayjs). It ships native ES modules exclusively — there are no CommonJS or UMD builds. Original work © 2018-present iamkun, licensed under [MIT](./LICENSE).
 
 <p align="center"><a href="https://day.js.org/" target="_blank" rel="noopener noreferrer"><img width="550"
                                                                              src="https://user-images.githubusercontent.com/17680888/39081119-3057bbe2-456e-11e8-862c-646133ad4b43.png"
                                                                              alt="Day.js" /></a></p>
-<p align="center">Fast <b>2kB</b> alternative to Moment.js with the same modern API</p>
+<p align="center">Fast <b>2kB</b> alternative to Moment.js with the same modern API — <b>ESM only</b></p>
 <p align="center">
-    <a href="https://bundlephobia.com/package/dayjs"><img
-            src="https://img.shields.io/bundlephobia/minzip/dayjs?style=flat-square&color=%2345cc11"
+    <a href="https://bundlephobia.com/package/esm-dayjs"><img
+            src="https://img.shields.io/bundlephobia/minzip/esm-dayjs?style=flat-square&color=%2345cc11"
             alt="Gzip Size"></a>
-    <a href="https://www.npmjs.com/package/dayjs"><img src="https://img.shields.io/npm/v/dayjs.svg?style=flat-square&colorB=51C838"
+    <a href="https://www.npmjs.com/package/esm-dayjs"><img src="https://img.shields.io/npm/v/esm-dayjs.svg?style=flat-square&colorB=51C838"
                                                        alt="NPM Version"></a>
-    <a href="https://github.com/iamkun/dayjs/actions/workflows/check.yml"><img
-            src="https://img.shields.io/github/actions/workflow/status/iamkun/dayjs/check.yml?style=flat-square" alt="Build Status"></a>
-    <a href="https://codecov.io/gh/iamkun/dayjs"><img
-            src="https://img.shields.io/codecov/c/github/iamkun/dayjs/master.svg?style=flat-square" alt="Codecov"></a>
-    <a href="https://github.com/iamkun/dayjs/blob/master/LICENSE"><img
+    <a href="https://github.com/drdreo/dayjs/blob/master/LICENSE"><img
             src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="License"></a>
-    <br>
-    <a href="https://saucelabs.com/u/dayjs">
-        <img width="750" src="https://user-images.githubusercontent.com/17680888/40040137-8e3323a6-584b-11e8-9dba-bbe577ee8a7b.png" alt="Sauce Test Status">
-    </a>
 </p>
 
-> Day.js is a minimalist JavaScript library that parses, validates, manipulates, and displays dates and times for modern browsers with a largely Moment.js-compatible API. If you use Moment.js, you already know how to use Day.js.
+> Day.js is a minimalist JavaScript library that parses, validates, manipulates, and displays dates and times for modern browsers with a largely Moment.js-compatible API. If you use Moment.js, you already know how to use Day.js. This fork publishes a pure ESM build, making it ideal for modern bundlers and native ES module environments.
 
 ```js
 dayjs().startOf('month').add(1, 'day').set('year', 2018).format('YYYY-MM-DD HH:mm:ss');
@@ -36,6 +26,7 @@ dayjs().startOf('month').add(1, 'day').set('year', 2018).format('YYYY-MM-DD HH:m
 * 🌐 I18n support
 * 📦 2kb mini library
 * 👫 All browsers supported
+* 🔷 ESM only — no CommonJS or UMD builds
 
 ---
 
@@ -48,7 +39,7 @@ You can find more details, API, and other docs on [day.js.org](https://day.js.or
 ### Installation
 
 ```console
-npm install dayjs --save
+npm install esm-dayjs --save
 ```
 
 📚[Installation Guide](https://day.js.org/docs/en/installation/installation)

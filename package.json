@@ -27,11 +27,9 @@
     "format": "oxfmt --write src/ test/ build/",
     "format:check": "oxfmt --check src/ test/ build/",
     "build": "node build/index.js && npm run size",
-    "size": "size-limit && gzip-size dayjs.min.js"
+    "size": "size-limit && gzip-size dayjs.min.js",
+    "prepare": "husky"
   },
-  "pre-commit": [
-    "lint"
-  ],
   "size-limit": [
     {
       "limit": "2.99 KB",
@@ -54,18 +52,18 @@
   },
   "devDependencies": {
     "@semantic-release/github": "^11.0.4",
+    "@size-limit/file": "^11.0.0",
     "@vitest/coverage-v8": "^3.0.0",
     "cross-env": "^7.0.3",
-    "oxlint": "^1.57.0",
-    "oxfmt": "^0.42.0",
     "gzip-size-cli": "^5.0.0",
+    "husky": "^9.1.7",
     "mockdate": "^3.0.0",
     "moment": "2.29.2",
     "moment-timezone": "0.5.31",
-    "pre-commit": "^1.2.2",
+    "oxfmt": "^0.42.0",
+    "oxlint": "^1.57.0",
     "rolldown": "^1.0.0-rc.12",
     "size-limit": "^11.0.0",
-    "@size-limit/file": "^11.0.0",
     "typescript": "^5.0.0",
     "vitest": "^3.0.0"
   }
